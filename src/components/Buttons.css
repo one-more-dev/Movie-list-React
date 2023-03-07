@@ -1,0 +1,11 @@
+.botoes{
+    padding: 0.5em;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 7px;
+    background-color: black;
+    cursor: pointer;
+}
+.botoes:hover{
+    color: #daa923;
+}

@@ -1,0 +1,30 @@
+.MovieItem{
+    width: 25%;
+    height: 480px;
+    padding: 10px;
+    margin: 25px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.MovieItem img{
+    width: 80%;
+    height: auto;
+    display: inline-block;
+}
+
+.MovieItemText p{
+    margin: 5px 0;
+}.MovieItemText .title{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+
+.MovieList{
+    width: 100%;
+    padding: 3%;
+    box-sizing: border-box;
+}
