@@ -9,3 +9,6 @@
 .botoes:hover{
     color: #daa923;
 }
+.botoes:active{
+    color: #0084ffa6;
+}

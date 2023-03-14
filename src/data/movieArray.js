@@ -9,7 +9,7 @@ const movies = [
     },
     {
         capa:"/projMovies/doiscoelhos.jpg",
-        titulo:"Dois Coelhos",
+        titulo:"2 Rabbits",
         genero:"Action",
         lancamento: "2012",
         plataformas: "Telecine"
