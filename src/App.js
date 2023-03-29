@@ -1,18 +1,23 @@
 import Banner from './components/Banner';
 import MovieList from './components/MovieList';
-import { LightButton, ToggleButton } from './components/Buttons'; 
+import { AbsButton } from './components/Buttons'; 
+import Insert from './components/Insert';
 import './index.css';
 import './components/Movie.css';
 
 
 function App() {
+
   return (
     <div className='mainstyle'>
       <Banner bannertitle={"Let's watch!"}/>
       <div className='mainbody' data-corpoprincipal>
-        <p className='mainbodytext'>A simple list of movies I still haven't watched, but want to.</p>
+        <p className='mainbodytext'>A personal list of movies I haven't watched yet, but want to.</p>
         <MovieList />
-        <p><LightButton estilo={"mainbody"}/><ToggleButton c1={'.MovieItem'} c2={'MovieItem2'}/></p>
+        <p>
+          <AbsButton value={"Light/Dark"} variavel={0} propriedades={'mainbody'} />
+          <AbsButton value={"Layout"} variavel={1} propriedades={['.MovieItem','MovieItem2']} />
+        </p>
       </div>
     </div>
   );
