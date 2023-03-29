@@ -1,0 +1,7 @@
+.insertWindow{
+    height: 75%;
+    width: 50%;
+    background-color: grey;
+    z-index: 10;
+}
+
