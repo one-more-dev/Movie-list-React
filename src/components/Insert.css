@@ -1,7 +1,16 @@
 .insertWindow{
     height: 75%;
-    width: 50%;
-    background-color: grey;
+    width: 100%;
+    margin-bottom: 22px;
     z-index: 10;
 }
+
+.Component{
+    width: fit-content;
+    padding: 0.7% 5% 0.7% 0;
+    display: inline-block;
+}
+.Component label{    padding: 0 15px;   }
+.Component input{   width: 100%;}
+
 

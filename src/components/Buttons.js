@@ -32,7 +32,7 @@ function buttonFunctions(variavel=0, propriedades=undefined){
         ToggleFunction(...propriedades);
     }else if(variavel > 1){
         if(propriedades != undefined){
-            console.log(propriedades);
+            propriedades();
         }
     }
 }

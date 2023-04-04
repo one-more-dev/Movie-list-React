@@ -1,7 +1,6 @@
 import Banner from './components/Banner';
 import MovieList from './components/MovieList';
 import { AbsButton } from './components/Buttons'; 
-import Insert from './components/Insert';
 import './index.css';
 import './components/Movie.css';
 
