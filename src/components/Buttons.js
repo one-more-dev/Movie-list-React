@@ -31,9 +31,7 @@ function buttonFunctions(variavel=0, propriedades=undefined){
     }else if(variavel === 1){
         ToggleFunction(...propriedades);
     }else if(variavel > 1){
-        if(propriedades != undefined){
-            propriedades();
-        }
+        if(propriedades != undefined){    propriedades();    }
     }
 }
 
@@ -41,10 +39,12 @@ function buttonFunctions(variavel=0, propriedades=undefined){
 //{} Is used if I want to pass an Arg when calling the Component. Otherwise it can be used normally
 function AbsButton(props){
     return(
-        <button className="botoes" onClick={() => {
-            buttonFunctions(props.variavel,props.propriedades) }}>{ props.value }</button>
+        <button className="botoes" id="botaoPrincipal" onClick={() => {
+            buttonFunctions(props.variavel,props.propriedades)
+        }}>{ props.value }</button>
     );
 }
+
 
 
 export { AbsButton };
