@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AbsButton } from "./Buttons";
 import MovieItem from "./Movie";
 import Insert from "./Insert";
@@ -8,29 +7,40 @@ import './Movie.css';
 
 
 
+
+
 function MovieList({lista=movies}){
+    
     const [getInsert,setInsert] = useState(undefined);
     const [btntext,setBtntext] = useState('New Movie');
-    const [filmsList,setFilms] = useState([]);
+    let [getList,setList] = useState([]);
 
-    const newMovieAdded = (thisFilm) => {
-        //setFilms(thisFilm);
-        console.log("O meu filme: ",thisFilm);
-        //setFilms([...filmsList,thisFilm]);
-    }
+    useEffect(()=>{
+        setList(getList);   //console.log("Eu fiz alguma coisa");
+    },[getList]);
     
-    const change = () => {
-        setInsert(<Insert tituloForm="New Film Info" newFilm={film => newMovieAdded(film)} />);
+    let newMovieAdded = (thisFilm) => {
+       setList([...getList,thisFilm]);
+    }
+
+    function change(){        
+        setInsert(<Insert 
+            tituloForm="New Film Info"
+            newFilm={(film) => newMovieAdded(film)}
+        />);
         setBtntext('Sign Movie');
-        const botaoPrincipal = document.getElementById('botaoPrincipal');
-        document.getElementById('formulario').appendChild(botaoPrincipal);
+        setTimeout(() =>{
+            const botaoPrincipal = document.getElementById('botaoPrincipal');
+            document.getElementById('formulario').appendChild(botaoPrincipal);
+        });
     }
 
     return<>
         <div className="Formulario">{getInsert}</div>
-        <AbsButton  value={btntext} variavel={7}    propriedades={ change } />
+        <AbsButton value={btntext} variavel={7} propriedades={ change } />
         <div className="MovieList">
-            {lista.map(filme => <MovieItem {...filme}/>)}
+            {lista.map(filmeFixo => <MovieItem key={filmeFixo.titulo} {...filmeFixo}/>)}
+            {getList.map(filmeDinamo => <MovieItem key={filmeDinamo.titulo} {...filmeDinamo}/>)}
         </div>
     </>
 }

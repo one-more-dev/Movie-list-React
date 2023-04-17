@@ -12,10 +12,11 @@ function FormComponent(props){
             <label>{props.inputLabel}</label>
             <input
                 placeholder={props.inputHolder} onChange={whenChange}
-                value={props.valor} type={props.tipo} maxlength={props.maximo} />
+                value={props.valor} type={props.tipo} maxLength={props.maximo} />
         </div>
     )
 }
+
 
 
 function Insert(props){
@@ -25,24 +26,33 @@ function Insert(props){
     const [getlancamento,setLancamento] = useState('');
     const [getplataformas,setPlataformas] = useState('');
 
+    function eraseForm(){
+        const setList = [setCapa,setTitulo,setGenero,setLancamento,setPlataformas];
+        for(let campo=0; campo<setList.length; campo++){
+            setList[campo]('');
+        }
+    }
+
     let whenSubmit = (evento) => {
         evento.preventDefault();
-        if(getlancamento < 1900){
-            setLancamento('19th Century Film');
+        if(getgenero == "" || gettitulo == ""){
+            alert("The film needs at least a title and genre");
+        }else{
+            props.newFilm({ 
+                capa: getcapa,
+                titulo: gettitulo,
+                genero: getgenero,
+                lancamento: getlancamento,
+                plataformas: getplataformas
+            });
+            alert("Film signed");
+            eraseForm();
         }
-        props.newFilm({ 
-            capa: getcapa,
-            titulo: gettitulo,
-            genero: getgenero,
-            lancamento: getlancamento,
-            plataformas: getplataformas
-        });
-        alert("Film signed");
     }
 
     return (
         <div className="insertWindow">
-            <form onSubmit={whenSubmit} id="formulario">
+            <form onSubmit={whenSubmit} id="formulario" className="formulario">
                 <h1>{props.tituloForm}</h1>
                 <FormComponent inputLabel='Title' inputHolder='Film info here' maximo='49'
                     valor={gettitulo} alteration={ valora => setTitulo(valora) } />
@@ -53,7 +63,7 @@ function Insert(props){
                     valor={getlancamento} alteration={ valorin => setLancamento(valorin) } />
                 <FormComponent inputLabel='Platforms' inputHolder='Limit of 99 characters'
                     valor={getplataformas}  alteration={ valor => setPlataformas(valor) } />
-                <FormComponent inputTipo='file' inputLabel='Film Cover' tipo='file'
+                <FormComponent inputLabel='Film Cover' inputHolder='Insert the film cover path here'
                     valor={getcapa} alteration={ valor => setCapa(valor)} />
             </form>
         </div>
