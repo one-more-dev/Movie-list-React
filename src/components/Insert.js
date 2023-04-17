@@ -25,6 +25,7 @@ function Insert(props){
     const [getgenero,setGenero] = useState('');
     const [getlancamento,setLancamento] = useState('');
     const [getplataformas,setPlataformas] = useState('');
+    //console.log(getlancamento);
 
     function eraseForm(){
         const setList = [setCapa,setTitulo,setGenero,setLancamento,setPlataformas];
