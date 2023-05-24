@@ -1,6 +1,7 @@
 .MovieItem{
+    position: relative;
     width: 25%;
-    height: 480px;
+    height: 430px;
     padding: 10px;
     margin: 25px;
     display: inline-block;
@@ -12,12 +13,14 @@
     height: auto;
     display: inline-block;
 }
-.MovieItem .MovieItemText p{    margin: 5px 0; }
-
+.MovieItem .MovieItemText p{
+    margin: 5px 0;
+}
 
 
 /*ALTERNATIVE*/
 .MovieItem2{
+    position: relative;
     width: 50%;
     height: 190px;
     margin: 5% 0;
@@ -41,14 +44,43 @@
 }
 
 
-
 /*CONSTANT*/
-.MovieItemText .title, .MovieItem2 .title{
+.MovieItemText .title,
+.MovieItem2 .title{
     font-size: 1.5em;
     font-weight: bold;
+}
+.MovieItem .deleteIcon,
+.MovieItem2 .deleteIcon{
+    position: absolute;
+    top: -2px;
+    left: 0;
+    color: rgb(216, 19, 19);
+}
+.MovieItem .favoriteIcon,
+.MovieItem2 .favoriteIcon{
+    position: absolute;
+    top: -2px;
+    right: 25px;
+    color: rgb(68, 68, 68);
 }
 .MovieList{
     width: 100%;
     padding: 3%;
     box-sizing: border-box;
+}
+
+
+.Favoritos{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background-color: #16638f;
+    color: white;
+    border-radius: 10px;
+}
+.Favoritos .favoriteIcon{
+    color: #005f0d;
 }

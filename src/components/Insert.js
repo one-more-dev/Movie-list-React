@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { v4 as id4 } from "uuid";
 import './Insert.css';
 
 
 function FormComponent(props){
     let whenChange = (evento) => {
-        props.alteration(evento.target.value);  //setValor(evento.target.value);
+        props.alteration(evento.target.value);
     }
 
     return (
@@ -20,12 +21,12 @@ function FormComponent(props){
 
 
 function Insert(props){
+    const [getFavorito,setFavorito] = useState(false);
     const [getcapa,setCapa] = useState('');
     const [gettitulo,setTitulo] = useState('');
     const [getgenero,setGenero] = useState('');
     const [getlancamento,setLancamento] = useState('');
     const [getplataformas,setPlataformas] = useState('');
-    //console.log(getlancamento);
 
     function eraseForm(){
         const setList = [setCapa,setTitulo,setGenero,setLancamento,setPlataformas];
@@ -36,10 +37,12 @@ function Insert(props){
 
     let whenSubmit = (evento) => {
         evento.preventDefault();
-        if(getgenero == "" || gettitulo == ""){
+        if(getgenero === "" || gettitulo === ""){
             alert("The film needs at least a title and genre");
         }else{
-            props.newFilm({ 
+            props.newFilm({
+                id: id4(),
+                favorito: getFavorito,
                 capa: getcapa,
                 titulo: gettitulo,
                 genero: getgenero,
@@ -50,6 +53,7 @@ function Insert(props){
             eraseForm();
         }
     }
+
 
     return (
         <div className="insertWindow">
@@ -66,6 +70,8 @@ function Insert(props){
                     valor={getplataformas}  alteration={ valor => setPlataformas(valor) } />
                 <FormComponent inputLabel='Film Cover' inputHolder='Insert the film cover path here'
                     valor={getcapa} alteration={ valor => setCapa(valor)} />
+                <FormComponent inputLabel='Highlight?' tipo='checkbox'
+                    valor={getFavorito} alteration={() => setFavorito(!getFavorito)}/>
             </form>
         </div>
     )

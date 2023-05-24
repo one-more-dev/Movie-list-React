@@ -1,11 +1,16 @@
 import React from "react";
+import { AiFillCloseSquare } from "react-icons/ai";
+import { BsFillPinAngleFill } from "react-icons/bs";
 import './Movie.css';
 
 
-function MovieItem({capa,titulo,genero,lancamento,plataformas}){
+
+function MovieItem({id,favorito=false,capa,titulo,genero,lancamento,plataformas,deleteAction,favoriteAction,estilo}){
     return (
-        <div className="MovieItem">
-            <img src={capa}/>
+        <div className={estilo}>
+            <img src={capa} alt={titulo}/>
+            <AiFillCloseSquare size={20} className="deleteIcon" onClick={deleteAction}/>
+            <BsFillPinAngleFill size={20} className="favoriteIcon" onClick={favoriteAction}/>
             <div className="MovieItemText">
                 <p className="title">{titulo}</p>
                 <p>Genre: {genero}</p>
